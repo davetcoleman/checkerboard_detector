@@ -1,6 +1,5 @@
 <launch>
-  <group ns="checkerdetector">
-    <node pkg="checkerboard_detector" type="objectdetection_tf_publisher.py" name="objectdetection_tf_publisher" output="screen"/>
-  </group>
+  <node pkg="checkerboard_detector" type="objectdetection_tf_publisher.py" name="objectdetection_tf_publisher" output="screen"/>
+
   <!--node pkg="tf" type="static_transform_publisher" name="base_to_checkerboard" args="-0.2 0 0.2 0 0 0 1 /checkerboard /base 100" / -->
 </launch>

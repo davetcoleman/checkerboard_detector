@@ -90,7 +90,7 @@ public:
     // Constructor
     CheckerboardDetector() : intrinsic_matrix(NULL), frame(NULL)
     {
-        _node.param("display", display, 0);
+        _node.param("display", display, 1);
         _node.param("verbose", verbose, 1);
         _node.param("maxboard", maxboard, -1);
         

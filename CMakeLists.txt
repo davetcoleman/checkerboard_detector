@@ -7,6 +7,10 @@ find_package(catkin REQUIRED COMPONENTS
   cv_bridge 
   sensor_msgs 
   posedetection_msgs
+  image_geometry
+  tf
+  tf_conversions
+  image_transport
 )
 
 find_package(OpenCV REQUIRED)
@@ -41,6 +45,10 @@ include_directories(include ${catkin_INCLUDE_DIRS}
 add_executable(checkerboard_detector src/checkerboard_detector.cpp)
 add_dependencies(checkerboard_detector    posedetection_msgs_gencpp)
 target_link_libraries(checkerboard_detector ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+
+add_executable(checkerboard src/checkerboard.cpp)
+#add_dependencies(checkerboard    posedetection_msgs_gencpp)
+target_link_libraries(checkerboard ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
 add_executable(checkerboard_calibration src/checkerboard_calibration.cpp)
 add_dependencies(checkerboard_calibration posedetection_msgs_gencpp)
