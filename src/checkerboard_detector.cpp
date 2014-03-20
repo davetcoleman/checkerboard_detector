@@ -244,7 +244,10 @@ public:
     {
         boost::mutex::scoped_lock lock(this->mutexcalib);
         if( Detect(_objdetmsg,*msg,this->_camInfoMsg) )
+        {
+          ROS_INFO_STREAM_NAMED("","Publishing detection message");
             _pubDetection.publish(_objdetmsg);
+        }
     }
 
     bool detect_cb(posedetection_msgs::Detect::Request& req, posedetection_msgs::Detect::Response& res)

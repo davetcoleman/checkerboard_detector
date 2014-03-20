@@ -18,13 +18,11 @@ if __name__== '__main__':
     rospy.init_node('objectdetection_tf_publisher', anonymous=True, log_level=rospy.DEBUG)
     rospy.loginfo("Starting object detection tf publisher")
 
-    subscriber = rospy.Subscriber("/checkerdetector/ObjectDetection", ObjectDetection, callback)
+    subscriber = rospy.Subscriber("ObjectDetection", ObjectDetection, callback)
     r = rospy.Rate(100)
     br = tf.TransformBroadcaster()
     while not rospy.is_shutdown():
-        rospy.loginfo("Checking for object messages")
         if object_messages:
-            rospy.loginfo("Has object messages")
             for detected_object in object_messages.objects:
                 rospy.loginfo("Publishing an object message on frame %s", object_messages.header.frame_id)
                 br.sendTransform((detected_object.pose.position.x,
@@ -35,7 +33,9 @@ if __name__== '__main__':
                                   detected_object.pose.orientation.z,
                                   detected_object.pose.orientation.w),
                                  rospy.Time.now(),
-                                 "/camera_link", #child  #object_messages.header.frame_id,
-                                 "/checkerboard") #parent
+                                 # child
+                                 "/object",
+                                 # parent
+                                 object_messages.header.frame_id)
         r.sleep()
 
