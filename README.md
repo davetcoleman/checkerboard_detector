@@ -11,4 +11,4 @@ roslaunch checkerboard_detector objectdetection_tf_publisher.launch
 roslaunch checkerboard_detector checkerboard_detector.launch 
 ```
 
-Start Rviz and set your fixed frame to 'base'.
+Start Rviz and set your fixed frame to 'base'.`

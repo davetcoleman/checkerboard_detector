@@ -24,7 +24,6 @@ if __name__== '__main__':
     while not rospy.is_shutdown():
         if object_messages:
             for detected_object in object_messages.objects:
-                rospy.loginfo("Publishing an object message on frame %s", object_messages.header.frame_id)
                 br.sendTransform((detected_object.pose.position.x,
                                   detected_object.pose.position.y,
                                   detected_object.pose.position.z),
