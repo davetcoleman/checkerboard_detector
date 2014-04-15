@@ -2,9 +2,9 @@
 import rospy
 import roslib
 roslib.load_manifest("posedetection_msgs")
-roslib.load_manifest("dynamic_tf_publisher")
+#roslib.load_manifest("dynamic_tf_publisher")
 from posedetection_msgs.msg import ObjectDetection
-from dynamic_tf_publisher.srv import *
+#from dynamic_tf_publisher.srv import *
 import tf
 
 def callback(msg):
