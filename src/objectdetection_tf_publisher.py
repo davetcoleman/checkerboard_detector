@@ -2,9 +2,7 @@
 import rospy
 import roslib
 roslib.load_manifest("posedetection_msgs")
-#roslib.load_manifest("dynamic_tf_publisher")
 from posedetection_msgs.msg import ObjectDetection
-#from dynamic_tf_publisher.srv import *
 import tf
 
 def callback(msg):
@@ -16,7 +14,7 @@ if __name__== '__main__':
     object_messages = None
 
     rospy.init_node('objectdetection_tf_publisher', anonymous=True, log_level=rospy.DEBUG)
-    rospy.loginfo("Starting object detection tf publisher")
+    rospy.loginfo("Starting object detection tf publisher. Waiting to recieve ObjectDetection message (from checkerboard)")
 
     subscriber = rospy.Subscriber("ObjectDetection", ObjectDetection, callback)
     r = rospy.Rate(100)
