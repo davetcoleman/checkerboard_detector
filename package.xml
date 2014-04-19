@@ -33,7 +33,6 @@
   <run_depend>cv_bridge</run_depend>
   <run_depend>sensor_msgs</run_depend>
   <run_depend>posedetection_msgs</run_depend>
-  <run_depend>dynamic_tf_publisher</run_depend>
   <run_depend>image_geometry</run_depend>
   <run_depend>tf</run_depend>
 
